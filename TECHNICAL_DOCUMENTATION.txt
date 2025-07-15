@@ -15,28 +15,7 @@ The Angular Navigation Showcase is a comprehensive demonstration application bui
 - CSS3 with custom properties
 - No external CSS frameworks or dependencies
 
-### Project Structure
-```
-src/
-├── app/
-│   ├── components/
-│   │   ├── home/
-│   │   │   └── home.component.ts
-│   │   ├── horizontal-nav/
-│   │   │   └── horizontal-nav.component.ts
-│   │   ├── sidebar-nav/
-│   │   │   └── sidebar-nav.component.ts
-│   │   ├── dropdown-nav/
-│   │   │   └── dropdown-nav.component.ts
-│   │   ├── mobile-nav/
-│   │   │   └── mobile-nav.component.ts
-│   │   └── tab-nav/
-│   │       └── tab-nav.component.ts
-│   └── app.routes.ts
-├── main.ts
-├── index.html
-└── global_styles.css
-```
+
 
 ## Component Architecture
 
