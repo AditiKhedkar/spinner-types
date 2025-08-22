@@ -1,4 +1,5 @@
 # React Spinner Gallery (No Build Tools)
+<img width="431" height="411" alt="image" src="https://github.com/user-attachments/assets/4171017e-f01c-47b4-853e-10297c046ae9" />
 
 A tiny React gallery showcasing 10 spinner types you can copy-paste into any project.
 
