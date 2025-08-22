@@ -1,44 +1,24 @@
-Deployed on  https://spinner-types.netlify.app/
+# React Spinner Gallery (No Build Tools)
 
+A tiny React gallery showcasing 10 spinner types you can copy-paste into any project.
 
-<img width="1254" height="629" alt="image" src="https://github.com/user-attachments/assets/3ba6ceca-6ef5-478e-9c65-90a43b03da19" />
+## How to run
+Just open `index.html` in your browser. No `npm install` required.
 
+## Customize
+Each spinner card has Size and Color controls. In your own app, you can pass size & color via CSS variables:
+```jsx
+<div className="spinner ring" style={{ "--size":"40px", "--color":"#10b981" }} />
+```
 
-readme format 
-
-
-**Features**:
-- Grid-based layout for navigation cards
-- Interactive preview animations
-- Responsive design with auto-fit grid
-- Hover effects with transform and shadow transitions
-
-**Key CSS Classes**:
-- `.nav-grid`: CSS Grid with auto-fit columns (min 300px)
-- `.nav-card`: Card component with hover animations
-- `.preview-*`: Visual previews for each navigation type
-
-### 2. Horizontal Navigation Component
-**File**: `src/app/components/horizontal-nav/horizontal-nav.component.ts`
-**Purpose**: Traditional horizontal navigation bar
-**Features**:
-- Sticky positioning with box-shadow
-- Active state management
-- Hover transitions
-- Responsive typography scaling
-
-**Implementation Details**:
-- Uses flexbox for layout alignment
-- Sticky positioning (`position: sticky; top: 0`)
-- Z-index layering for proper stacking
-- Active state tracking with Angular property binding
-
-### 3. Sidebar Navigation Component
-**File**: `src/app/components/sidebar-nav/sidebar-nav.component.ts`
-**Purpose**: Vertical sidebar navigation for dashboard layouts
-**Features**:
-- Fixed positioning sidebar
-- Icon + text layout
-- Scrollable content area
-- Mobile responsive (hidden on small screens)
-
+## Spinner types
+1. Ring
+2. Dual Ring
+3. Dots (Bounce)
+4. Bars (Equalizer)
+5. Pulse
+6. Orbit
+7. Grid (3x3)
+8. Wave (5 bars)
+9. Flower (12 dots)
+10. Circular (SVG stroke-dasharray)
