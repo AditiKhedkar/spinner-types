@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>React Spinner Gallery</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- React & Babel via CDN for a zero-build setup -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <script type="text/babel" data-type="module" data-presets="react">
+    const { useState } = React;
+
+    function SpinnerCard({ title, children, defaultSize="48px", defaultColor="#2563eb" }) {
+      const [size, setSize] = useState(defaultSize);
+      const [color, setColor] = useState(defaultColor);
+      return (
+        <div className="card">
+          <div className="card-header">
+            <h3>{title}</h3>
+            <div className="controls">
+              <label>
+                Size
+                <input type="range" min="16" max="128" value={parseInt(size)} onChange={(e)=>setSize(e.target.value + "px")} />
+              </label>
+              <label>
+                Color
+                <input type="color" value={color} onChange={(e)=>setColor(e.target.value)} />
+              </label>
+            </div>
+          </div>
+          <div className="card-body" style={{"--size": size, "--color": color}}>
+            {children}
+          </div>
+        </div>
+      );
+    }
+
+    function SpinnerRing() { return <div className="spinner ring" />; }
+    function SpinnerDualRing() { return <div className="spinner dual-ring"><div></div><div></div></div>; }
+    function SpinnerDots() {
+      return <div className="spinner dots"><div></div><div></div><div></div></div>;
+    }
+    function SpinnerBars() {
+      return <div className="spinner bars"><div></div><div></div><div></div><div></div><div></div></div>;
+    }
+    function SpinnerPulse() { return <div className="spinner pulse"></div>; }
+    function SpinnerOrbit() {
+      return (
+        <div className="spinner orbit">
+          <div className="orbit-center"></div>
+          <div className="orbit-dot d1"></div>
+          <div className="orbit-dot d2"></div>
+          <div className="orbit-dot d3"></div>
+        </div>
+      );
+    }
+    function SpinnerGrid() { return <div className="spinner grid">{Array.from({length:9}).map((_,i)=><div key={i}></div>)}</div>; }
+    function SpinnerWave() { return <div className="spinner wave"><div></div><div></div><div></div><div></div><div></div></div>; }
+    function SpinnerFlower() { return <div className="spinner flower">{Array.from({length:12}).map((_,i)=><div key={i} style={{"--i": i}}></div>)}</div>; }
+    function SpinnerCircularSVG() {
+      return (
+        <svg className="spinner circular" viewBox="0 0 50 50">
+          <circle className="path" cx="25" cy="25" r="20" fill="none" strokeWidth="4"></circle>
+        </svg>
+      );
+    }
+
+    function App(){
+      return (
+        <div className="container">
+          <header>
+            <h1>React Spinner Gallery</h1>
+            <p>Ten lightweight, dependency-free spinners. Adjust size & color per card.</p>
+          </header>
+          <main className="grid">
+            <SpinnerCard title="Ring"><SpinnerRing/></SpinnerCard>
+            <SpinnerCard title="Dual Ring"><SpinnerDualRing/></SpinnerCard>
+            <SpinnerCard title="Dots (Bounce)"><SpinnerDots/></SpinnerCard>
+            <SpinnerCard title="Bars (Equalizer)"><SpinnerBars/></SpinnerCard>
+            <SpinnerCard title="Pulse"><SpinnerPulse/></SpinnerCard>
+            <SpinnerCard title="Orbit"><SpinnerOrbit/></SpinnerCard>
+            <SpinnerCard title="Grid (3x3)"><SpinnerGrid/></SpinnerCard>
+            <SpinnerCard title="Wave (5 bars)"><SpinnerWave/></SpinnerCard>
+            <SpinnerCard title="Flower (12 dots)"><SpinnerFlower/></SpinnerCard>
+            <SpinnerCard title="Circular (SVG)"><SpinnerCircularSVG/></SpinnerCard>
+          </main>
+          <footer>
+            <p>Tip: copy any spinner markup & styles into your app. Controls are optional.</p>
+          </footer>
+        </div>
+      )
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App/>);
+  </script>
+</body>
+</html>
